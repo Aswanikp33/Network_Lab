@@ -1,0 +1,42 @@
+
+1000 Avani Engineer 120000 05/12/2019 Canada
+1001 Ajay Engineer 160000 05/12/2019 Pondicherry
+1002 Ayush Engineer 100000 13/08/2018 Manglolre
+1003 Shwetha Teacher 150000 24/02/2020 Trivandrum
+1004 Aswani Doctor 100000 17/07/2017 Kochi
+1005 Keerthana Doctor 120000 19/04/2016 Coimbatore
+1006 Divya Teacher 100000 20/09/2020 Banglore
+
+
+
+1. Write a linux command to display name and job
+	cut -d ' ' -f 2,3 employee
+	Avani Engineer
+	Ajay Engineer
+	Ayush Engineer
+	Shwetha teacher
+	Aswani doctor
+	Keerthana doctor
+	Divya teacherr
+
+2. Write a linux command to display name of employee those joined on 05/12/2019
+	grep '05/12/2019' employee|cut -d ' ' -f 2 
+	Avani
+	Ajay
+
+3. Write a linux command to display details of employee expect doctors
+	grep -v 'doctor' employee
+	1000 Avani Engineer 120000 05/12/2019 canada
+	1001 Ajay Engineer 160000 05/12/2019 pondicherry
+	1002 Ayush Engineer 100000 13/08/2018 manglolre
+	1003 Shwetha teacher 150000 24/02/2020 trivandrum
+	1006 Divya teacherr 100000 20/09/2020 banglore
+
+4. Write a linux command to display places ending with letter 'hi'
+	grep -E ' .*hi$' employee|cut -d ' ' -f 6
+	kochi
+
+5. Write a linux command to display name and salary of teachers
+	grep 'teacher' employee|awk -F ' ' '{print $2,$4}'
+	Shwetha 150000
+	Divya 100000
